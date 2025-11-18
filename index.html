@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lexury Cabinas Fotográficas Exclusivas — Elegance</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070707;
+      --card:#0f0f0f;
+      --gold:#c9a24a;
+      --muted:#bfbfbf;
+      --radius:18px;
+      --glass: rgba(255,255,255,0.02);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;background:var(--bg);color:#eee;font-family:Inter,sans-serif;padding:20px;
+    }
+    .wrap{max-width:1100px;margin:auto}
+
+    h1{font-size:32px;text-align:center;margin-top:20px}
+    @media(max-width:480px){h1{font-size:26px}}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:20px;
+      margin-top:30px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:16px;
+      text-align:center;
+      border:1px solid rgba(201,162,74,0.1);
+    }
+
+    .frame{width:100%;aspect-ratio:4/3;border-radius:12px;overflow:hidden;margin-bottom:12px}
+    .frame img{width:100%;height:100%;object-fit:cover}
+
+    h3{color:var(--gold);margin:8px 0;font-size:18px}
+    p.desc{font-size:14px;color:var(--muted)}
+
+    .cta{display:flex;gap:10px;margin-top:14px}
+    .btn{
+      flex:1;
+      padding:12px;
+      border-radius:10px;
+      border:1px solid var(--gold);
+      background:transparent;
+      color:var(--gold);
+      font-weight:600;
+      cursor:pointer;
+      text-decoration:none;
+      text-align:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* Modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,0.8);display:none;align-items:center;justify-content:center;padding:20px}
+    .modal.open{display:flex}
+    .modal-content{max-width:700px;width:100%}
+    .modal-content img{width:100%;border-radius:10px}
+    .modal-close{
+      position:absolute;top:20px;right:20px;
+      background:none;border:none;color:white;font-size:24px;cursor:pointer
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <img src="img/logo.png" alt="Lexury Logo" style="width:160px;display:block;margin:0 auto 10px;">
+
+    <h1>Lexury Cabinas Fotográficas Exclusivas</h1>
+
+    <main class="grid">
+      <article class="card">
+        <div class="frame"><img src="img/cabina1.JPG"></div>
+        <h3>Clásica — Negro y Dorado</h3>
+        <p class="desc">2 horas, fotos ilimitadas, accesorios, staff, iluminación, alfombra roja.</p>
+        <div class="cta">
+          <button class="btn" onclick="openModal('img/cabina1.JPG')">Ver</button>
+          <a class="btn" href="https://wa.me/529612020738?text=Hola,%20me%20interesa%20la%20Cabina%20Clásica" target="_blank">WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="frame"><img src="img/cabina2.JPG"></div>
+        <h3>Cabina Moderna — Cámara</h3>
+        <p class="desc">2 horas, fotos ilimitadas, accesorios, staff, iluminación profesional.</p>
+        <div class="cta">
+          <button class="btn" onclick="openModal('img/cabina2.JPG')">Ver</button>
+          <a class="btn" href="https://wa.me/529611955561?text=Hola,%20me%20interesa%20la%20Cabina%20Moderna" target="_blank">WhatsApp</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="frame"><img src="img/cabina3.JPG"></div>
+        <h3>Cabina — Video 360</h3>
+        <p class="desc">2 horas, videos ilimitados, fondo dorado, staff, iluminación.</p>
+        <div class="cta">
+          <button class="btn" onclick="openModal('img/cabina3.JPG')">Ver</button>
+          <a class="btn" href="https://wa.me/529612020738?text=Hola,%20me%20interesa%20la%20Cabina%20360" target="_blank">WhatsApp</a>
+        </div>
+      </article>
+    </main>
+  </div>
+
+  <div id="modal" class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-content"><img id="modal-img" src=""></div>
+  </div>
+
+  <script>
+    function openModal(src){
+      document.getElementById('modal-img').src = src;
+      document.getElementById('modal').classList.add('open');
+    }
+    function closeModal(){
+      document.getElementById('modal').classList.remove('open');
+      document.getElementById('modal-img').src = '';
+    }
+  </script>
+</body>
+</html>
